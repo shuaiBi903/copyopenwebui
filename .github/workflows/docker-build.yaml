@@ -95,6 +95,14 @@ jobs:
           cache-to: type=registry,ref=${{ steps.cache-meta.outputs.tags }},mode=max
           build-args: |
             BUILD_HASH=${{ github.sha }}
+            USE_CUDA=false
+            USE_OLLAMA=false
+            USE_CUDA_VER=cu121
+            USE_EMBEDDING_MODEL=sentence-transformers/all-MiniLM-L6-v2
+            USE_RERANKING_MODEL=
+            USE_TIKTOKEN_ENCODING_NAME=cl100k_base
+            UID=0
+            GID=0
 
       - name: Export digest
         run: |
@@ -195,6 +203,13 @@ jobs:
           build-args: |
             BUILD_HASH=${{ github.sha }}
             USE_CUDA=true
+            USE_OLLAMA=false
+            USE_CUDA_VER=cu121
+            USE_EMBEDDING_MODEL=sentence-transformers/all-MiniLM-L6-v2
+            USE_RERANKING_MODEL=
+            USE_TIKTOKEN_ENCODING_NAME=cl100k_base
+            UID=0
+            GID=0
 
       - name: Export digest
         run: |
@@ -294,7 +309,14 @@ jobs:
           cache-to: type=registry,ref=${{ steps.cache-meta.outputs.tags }},mode=max
           build-args: |
             BUILD_HASH=${{ github.sha }}
+            USE_CUDA=false
             USE_OLLAMA=true
+            USE_CUDA_VER=cu121
+            USE_EMBEDDING_MODEL=sentence-transformers/all-MiniLM-L6-v2
+            USE_RERANKING_MODEL=
+            USE_TIKTOKEN_ENCODING_NAME=cl100k_base
+            UID=0
+            GID=0
 
       - name: Export digest
         run: |
